@@ -27,8 +27,8 @@
       "angular-animate": "jspm:angular-animate",
       "angular-aria": "jspm:angular-aria",
       "angular-messages": "jspm:angular-messages",
-      "angular-material": "github:angular/bower-material",
-      "fd-angular-core": "jspm:fd-angular-core"
+      "angular-material": "npm:angular-material",
+      "fd-angular-core": "npm:fd-angular-core"
     }
   }
 }
