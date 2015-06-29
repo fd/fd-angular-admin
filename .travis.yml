@@ -1,3 +1,11 @@
 language: node_js
 node_js:
 - '0.12'
+deploy:
+  provider: npm
+  email: simon.menke@gmail.com
+  api_key:
+    secure: V9PcUdehyRrH4nvoq3dOyBekzR41nBGRNCvIy81Cn/vHkeT2/4odPca1W3XaMkLHM/UWbpM7OziAZm16xi0/44evjtzZLmoDDdU0GAggCfJImW53KiFo0cNHeboMfxboWLwHC7OnL6IHxqbHyR2lqAVKinDR0/ewnfSev7JnoNzil8Qi+H22xFNIiO9i7TOeFzvSF7pD138C3TD1sg7I/m96dSc5MzkoHIrBmYi7prKSGMjo+hdYMyqgCSKjQgqb86BeB3ZVm5gilufnstboeJ6Qxqnl5vP91k/K3+hjhg7LWJ/SjiuQ/RAg2v6+HJNAsrtG6gvAit2RJv6KmyXVf5bkmSuxKtJDg4sbHBUbjrxUH4pqv1MfsKjbzqgd/Wh1qAdyuDFuI0ujbRqYGomQBTLSIqmV0KsLQyhs5qS7Wv1B+rRoJvTJz8ng0oAPYej+Etuh4lRsZTI7x/23WwzJYzdHuuA1PWCBO5CemRzv5B9NNFs5rBB57FZUMBcjYMm3tjzgddfSpNLIvxL5WvDsYYxBQDZ3snQP8RDY3eV+pq5WVVupjPTXpXTvQpI/WeuLcvWQoYt2Ff0a0ruEUDSTdsDbQl+sHCcY8i3s7LLTgclAOAlx5CsBzRs5bn9kACZFD8rDWp5ISOo6GZvqccZjExR7D5vS+tTItTkbXq0XB+8=
+  on:
+    tags: true
+    repo: fd/fd-angular-admin

@@ -7,9 +7,9 @@ var modules = [];
 @State({
   abstract: true,
   templateUrl: TMPL,
-  children: modules
+  children: modules,
 })
-@Inject("$mdSidenav")
+@Inject("$mdSidenav", "$mdMedia", "$location")
 export class AppController {
 
   static setRootSection(section) {
@@ -17,13 +17,38 @@ export class AppController {
     modules.push(section);
   }
 
-  constructor($mdSidenav) {
+  constructor($mdSidenav, $mdMedia, $location) {
+    this.screenIsSmall = $mdMedia("sm");
+    this.$location = $location;
     this.root = AppController.rootSection.menuItem;
     this.$mdSidenav = $mdSidenav;
   }
 
   toggleNav() {
     this.$mdSidenav("sidenav").toggle();
+  }
+
+  @Inject('$element')
+  attach($element) {
+    $element.attr({
+      "layout": "row",
+      "layout-fill": "true",
+      "flex": true,
+    });
+  }
+
+  goHome() {
+    this.$location.path("/");
+    if (!this.$mdSidenav("sidenav").isLockedOpen()) {
+      this.$mdSidenav("sidenav").close();
+    }
+  }
+
+  go(item) {
+    this.$location.path(item.url);
+    if (!this.$mdSidenav("sidenav").isLockedOpen()) {
+      this.$mdSidenav("sidenav").close();
+    }
   }
 
 }

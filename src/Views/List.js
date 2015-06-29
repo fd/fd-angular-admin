@@ -1,23 +1,21 @@
 import {Inject, State} from "fd-angular-core";
 import TMPL from "./List.html!";
 import CSS from "./List.css!pcss";
-import defaultItemTMPL from "./ListItem.html!";
 
-let nextCtrlName = 0;
+let nextCtrlId = 0;
 
 export function List(opts={}) {
-  nextCtrlName++;
+  nextCtrlId++;
 
   @State({
     templateUrl: TMPL,
-    controllerName: `list.${nextCtrlName}`
+    controllerName: `fd.admin.list.${nextCtrlId}`,
   })
   @Inject("$state")
   class ListController {
 
     constructor($state) {
       this.$state = $state;
-      this.itemTMPL = (opts.templateUrl || defaultItemTMPL);
     }
 
     @Inject("module")
@@ -38,6 +36,18 @@ export function List(opts={}) {
 
     show(item) {
       this.$state.go("^.show", { id: item.id });
+    }
+
+    toggleSelect(item, $event) {
+      $event.stopImmediatePropagation();
+    }
+
+    firstLetter(item) {
+      return item.name.slice(0, 1).toUpperCase();
+    }
+
+    letterIconClass(item) {
+      return "c" + this.firstLetter(item);
     }
 
   }

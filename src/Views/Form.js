@@ -1,13 +1,21 @@
 import {Inject, State} from "fd-angular-core";
 import TMPL from "./Form.html!";
+import CSS from "./Form.css!pcss";
+
+let nextCtrlId = 0;
 
 export function Form(opts) {
+  nextCtrlId++;
 
-  @State({ templateUrl: TMPL })
-  @Inject("module")
+  @State({
+    templateUrl: TMPL,
+    controllerName: `fd.admin.form.${nextCtrlId}`,
+  })
+  @Inject("module", '$mdDialog')
   class FormController {
 
-    constructor(module) {
+    constructor(module, $mdDialog) {
+      this.$mdDialog = $mdDialog;
       this.module = module;
       this.formTMPL = (opts.templateUrl);
     }
@@ -25,9 +33,25 @@ export function Form(opts) {
         .then(item => this.item = item);
     }
 
-    @Inject("$state")
-    attach($state) {
+    @Inject('$state', "$element")
+    attach($state, $element) {
       this.$state = $state;
+      $element.addClass(CSS.fdForm);
+    }
+
+    @Inject("$element")
+    detach($element) {
+      $element.removeClass(CSS.fdForm);
+    }
+
+    cancel($event) {
+      $event.stopImmediatePropagation();
+      $event.preventDefault();
+      if (this.isCreate) {
+        this.$state.go("^.index");
+      } else {
+        this.$state.go("^.show", {id: this.item.id});
+      }
     }
 
     submit() {
@@ -35,13 +59,31 @@ export function Form(opts) {
 
       if (this.isCreate) {
         p = this.module.create(this.item);
+        if (!p) { throw Error(".create(item) must return a Promise"); }
       } else {
         p = this.module.update(this.item);
+        if (!p) { throw Error(".update(item) must return a Promise"); }
       }
 
       p = p
         .then(item => this.item = item)
         .then(item => this.$state.go("^.show", {id: item.id}));
+
+      p = p.catch(error => {
+        let message = (error && error.message) || error;
+
+        if (error.status === 403) {
+          message = "You are not allowed to do this.";
+        }
+
+        let alert = this.$mdDialog.alert()
+          .title('Oops, something went wrong.')
+          .content(`${message}`)
+          .ok('Close');
+        return this.$mdDialog.show(alert);
+      });
+
+      return p;
     }
 
   }

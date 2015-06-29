@@ -25,7 +25,7 @@ export function Section(conf, ...children) {
     name: name,
     label: label,
     url: url,
-    children: children.map(c => c.menuItem)
+    children: children.map(c => c.menuItem).filter(c => !!c)
   };
 
   return SectionController;

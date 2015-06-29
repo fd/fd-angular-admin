@@ -41,7 +41,7 @@ import {mountAt, State} from "fd-angular-core";
 
 export function Module(opts={}) {
   return function register(constructor) {
-    let {index, show, create, update} = opts;
+    let {labels, index, show, create, update} = opts;
 
     if (show === undefined) {
       show = update;
@@ -50,10 +50,10 @@ export function Module(opts={}) {
 
     let children = (opts.children || []);
 
-    if (index) { children.push(index::mountAt("")); }
-    if (create) { children.push(create::mountAt("/new")); }
-    if (update) { children.push(update::mountAt("/:id/edit")); }
-    if (show) { children.push(show::mountAt("/:id")); }
+    if (index) { children.push(index::mountAt("", { name: 'index' })); }
+    if (create) { children.push(create::mountAt("/new", { name: 'create' })); }
+    if (update) { children.push(update::mountAt("/:id/edit", { name: 'update' })); }
+    if (show) { children.push(show::mountAt("/:id", { name: 'show' })); }
 
     opts.bindTo = "module";
     opts.abstract = true;
@@ -67,6 +67,7 @@ export function Module(opts={}) {
     state.resolve.module = [
       state.name,
       function(mod) {
+        mod.labels = labels;
         mod.hasCreate = !!create;
         mod.hasIndex = !!index;
         mod.hasShow = !!show;
@@ -77,8 +78,8 @@ export function Module(opts={}) {
 
     constructor.menuItem = {
       name: state.name,
-      label: opts.labels.menu,
-      url: `/${state.name}`
+      label: labels.menu,
+      url: `/${state.name}`,
     };
   };
 }

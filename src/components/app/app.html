@@ -3,7 +3,7 @@
   md-is-locked-open="$mdMedia('gt-md')">
 
   <md-toolbar>
-    <h2 class="md-toolbar-tools">
+    <h2 class="md-toolbar-tools" ng-click="app.goHome()">
       <span>{{app.root.label}}</span>
     </h2>
   </md-toolbar>
@@ -12,7 +12,7 @@
 
     <ul class="menu">
       <li ng-repeat="item in app.root.children">
-        <md-button ng-href="{{ item.url }}" href="#">{{ item.label }}</md-button>
+        <md-button ng-click="app.go(item)" href="#">{{ item.label }}</md-button>
       </li>
     </ul>
 
@@ -27,12 +27,12 @@
         <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
       </md-button>
 
-      <h2 hide-gt-md>
+      <h2 hide-gt-md ng-click="app.goHome()">
         <span>{{app.root.label}}</span>
       </h2>
 
     </div>
   </md-toolbar>
 
-  <md-content flex md-scroll-y ui-view class="md-padding"></md-content>
+  <md-content flex md-scroll-y ui-view ng-class="{'md-padding': !app.screenIsSmall}"></md-content>
 </md-content>

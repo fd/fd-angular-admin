@@ -4,3 +4,92 @@
   bottom: 25px;
   right: 25px;
 }
+
+:local(.fdList) .md-subheader {
+  background-color: transparent;
+}
+
+:local(.fdList) md-list {
+  background-color: white;
+  padding: 0;
+}
+
+:local(.fdList) md-list-item + md-list-item {
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+:local(.fdList) md-list-item .hidden-select {
+  display: block;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+
+  width: 40px;
+  height: 40px;
+  margin: 8px 16px 8px 0;
+}
+
+:local(.fdList) md-list-item .hidden-select md-checkbox {
+  margin-left: 10px;
+}
+
+:local(.fdList) md-list-item .hidden-select .letter-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  background-color: #F44336;
+}
+
+:local(.fdList) md-list-item .hidden-select:hover .letter-icon {
+  display: none;
+}
+
+:local(.fdList) md-list-item.selected .hidden-select .letter-icon {
+  display: none;
+}
+
+:local(.fdList) md-list-item .letter-icon.cA { background-color: #F44336; }
+:local(.fdList) md-list-item .letter-icon.cB { background-color: #E91E63; }
+:local(.fdList) md-list-item .letter-icon.cC { background-color: #9C27B0; }
+:local(.fdList) md-list-item .letter-icon.cD { background-color: #673AB7; }
+:local(.fdList) md-list-item .letter-icon.cE { background-color: #3F51B5; }
+:local(.fdList) md-list-item .letter-icon.cF { background-color: #2196F3; }
+:local(.fdList) md-list-item .letter-icon.cG { background-color: #03A9F4; }
+:local(.fdList) md-list-item .letter-icon.cH { background-color: #00BCD4; }
+:local(.fdList) md-list-item .letter-icon.cI { background-color: #009688; }
+:local(.fdList) md-list-item .letter-icon.cJ { background-color: #4CAF50; }
+:local(.fdList) md-list-item .letter-icon.cK { background-color: #8BC34A; }
+:local(.fdList) md-list-item .letter-icon.cL { background-color: #CDDC39; }
+:local(.fdList) md-list-item .letter-icon.cM { background-color: #FFEB3B; }
+:local(.fdList) md-list-item .letter-icon.cN { background-color: #FFC107; }
+:local(.fdList) md-list-item .letter-icon.cO { background-color: #FF9800; }
+:local(.fdList) md-list-item .letter-icon.cP { background-color: #FF5722; }
+:local(.fdList) md-list-item .letter-icon.cQ { background-color: #795548; }
+:local(.fdList) md-list-item .letter-icon.cR { background-color: #607D8B; }
+:local(.fdList) md-list-item .letter-icon.cS { background-color: #F44336; }
+:local(.fdList) md-list-item .letter-icon.cT { background-color: #E91E63; }
+:local(.fdList) md-list-item .letter-icon.cU { background-color: #9C27B0; }
+:local(.fdList) md-list-item .letter-icon.cV { background-color: #673AB7; }
+:local(.fdList) md-list-item .letter-icon.cW { background-color: #3F51B5; }
+:local(.fdList) md-list-item .letter-icon.cX { background-color: #2196F3; }
+:local(.fdList) md-list-item .letter-icon.cY { background-color: #03A9F4; }
+:local(.fdList) md-list-item .letter-icon.cZ { background-color: #00BCD4; }
+:local(.fdList) md-list-item .letter-icon.c0 { background-color: #009688; }
+:local(.fdList) md-list-item .letter-icon.c1 { background-color: #4CAF50; }
+:local(.fdList) md-list-item .letter-icon.c2 { background-color: #8BC34A; }
+:local(.fdList) md-list-item .letter-icon.c3 { background-color: #CDDC39; }
+:local(.fdList) md-list-item .letter-icon.c4 { background-color: #FFEB3B; }
+:local(.fdList) md-list-item .letter-icon.c5 { background-color: #FFC107; }
+:local(.fdList) md-list-item .letter-icon.c6 { background-color: #FF9800; }
+:local(.fdList) md-list-item .letter-icon.c7 { background-color: #FF5722; }
+:local(.fdList) md-list-item .letter-icon.c8 { background-color: #795548; }
+:local(.fdList) md-list-item .letter-icon.c9 { background-color: #607D8B; }

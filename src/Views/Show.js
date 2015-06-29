@@ -1,8 +1,14 @@
 import {Inject, State} from "fd-angular-core";
 
-export function Show(opts) {
+let nextCtrlId = 0;
 
-  @State({ templateUrl: opts.templateUrl })
+export function Show(opts={}) {
+  nextCtrlId++;
+
+  @State({
+    templateUrl: opts.templateUrl,
+    controllerName: `fd.admin.show.${nextCtrlId}`
+  })
   class ShowController {
 
     @Inject("module", "$stateParams")

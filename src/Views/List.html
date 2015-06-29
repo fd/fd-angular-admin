@@ -1,37 +1,24 @@
-<md-content flex class="md-whiteframe-z2" style="background: white;">
+<md-subheader class="md-no-sticky">{{ module.labels.listHeader || module.labels.plural }}</md-subheader>
 
-  <md-fab-toolbar class="md-right">
-    <md-fab-trigger class="align-with-text">
-      <md-button aria-label="menu" class="md-fab md-primary">
-        <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
-      </md-button>
-    </md-fab-trigger>
-    <md-toolbar>
-      <md-fab-actions class="md-toolbar-tools">
+<md-list class="md-whiteframe-z2">
+  <md-list-item
+    ng-repeat="item in list.items | orderBy:'name' "
+    ng-click="list.show(item, $event)"
+    ng-class="{'selected': item.$selected}">
 
-          <md-button
-            ng-if="module.hasDestroy"
-            aria-label="delete"
-            class="md-icon-button"
-            ui-sref="^.delete()">
-            <md-icon md-svg-icon="content:ic_delete_24px"></md-icon>
-          </md-button>
-
-      </md-fab-actions>
-    </md-toolbar>
-  </md-fab-toolbar>
-
-  <md-list>
-    <md-list-item
-      ng-repeat="item in list.items | orderBy:'name' "
-      ng-click="list.show(item)">
+    <div class="hidden-select"
+      ng-click="list.toggleSelect(item, $event)">
       <md-checkbox
         ng-if="module.hasDestroy"
         ng-model="item.$selected"></md-checkbox>
-      <p>{{ item.name }}</p>
-    </md-list-item>
-  </md-list>
-</md-content>
+
+      <span class="letter-icon" ng-class="list.letterIconClass(item)">{{ list.firstLetter(item) }}</span>
+    </div>
+
+    <p>{{ item.name }}</p>
+  </md-list-item>
+</md-list>
+
 
 <div class="fab-actions">
   <md-fab-speed-dial class="md-fling" md-direction="up">
