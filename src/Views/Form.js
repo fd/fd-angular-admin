@@ -1,6 +1,6 @@
 import {Inject, State} from "fd-angular-core";
 import TMPL from "./Form.html!";
-import CSS from "./Form.css!pcss";
+import CSS from "./Form.css!";
 
 let nextCtrlId = 0;
 

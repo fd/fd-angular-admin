@@ -1,6 +1,6 @@
 import {Inject, State} from "fd-angular-core";
 import TMPL from "./List.html!";
-import CSS from "./List.css!pcss";
+import CSS from "./List.css!";
 
 let nextCtrlId = 0;
 
