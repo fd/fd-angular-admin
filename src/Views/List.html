@@ -1,0 +1,56 @@
+<md-content flex class="md-whiteframe-z2" style="background: white;">
+
+  <md-fab-toolbar class="md-right">
+    <md-fab-trigger class="align-with-text">
+      <md-button aria-label="menu" class="md-fab md-primary">
+        <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+      <md-fab-actions class="md-toolbar-tools">
+
+          <md-button
+            ng-if="module.hasDestroy"
+            aria-label="delete"
+            class="md-icon-button"
+            ui-sref="^.delete()">
+            <md-icon md-svg-icon="content:ic_delete_24px"></md-icon>
+          </md-button>
+
+      </md-fab-actions>
+    </md-toolbar>
+  </md-fab-toolbar>
+
+  <md-list>
+    <md-list-item
+      ng-repeat="item in list.items | orderBy:'name' "
+      ng-click="list.show(item)">
+      <md-checkbox
+        ng-if="module.hasDestroy"
+        ng-model="item.$selected"></md-checkbox>
+      <p>{{ item.name }}</p>
+    </md-list-item>
+  </md-list>
+</md-content>
+
+<div class="fab-actions">
+  <md-fab-speed-dial class="md-fling" md-direction="up">
+
+    <md-fab-trigger>
+      <md-button aria-label="menu" class="md-fab md-warn">
+        <md-icon md-svg-icon="navigation:ic_menu_24px"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+
+    <md-fab-actions>
+      <md-button
+        ng-if="module.hasCreate"
+        aria-label="create"
+        class="md-fab md-raised md-mini md-primary md-hue-2"
+        ui-sref="^.create()">
+        <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+      </md-button>
+    </md-fab-actions>
+
+  </md-fab-speed-dial>
+</div>
