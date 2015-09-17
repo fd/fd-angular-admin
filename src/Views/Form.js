@@ -50,7 +50,11 @@ export function Form(opts) {
 			if (this.isCreate) {
 				this.$state.go("^.index");
 			} else {
-				this.$state.go("^.show", {id: this.item.id});
+				if (this.module.hasUpdate) {
+					this.$state.go("^.show", {id: this.item.id});
+				} else {
+					this.$state.go("^.index");
+				}
 			}
 		}
 
