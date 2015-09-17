@@ -1,6 +1,6 @@
 {
   "name": "fd-angular-admin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Admin framework",
   "repository": "https://github.com/fd/fd-angular-admin.git",
   "scripts": {
