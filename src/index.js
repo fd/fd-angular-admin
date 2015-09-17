@@ -13,9 +13,9 @@ includeModule("ngMaterial");
 export {app};
 
 export function bootstrap(rootSection, opts) {
-  AppController.setRootSection(rootSection);
-  let mods = (opts && opts.modules) || [];
-  return ngBootstrap(AppController, ...mods);
+	AppController.setRootSection(rootSection);
+	let mods = (opts && opts.modules) || [];
+	return ngBootstrap(AppController, ...mods);
 }
 
 export {Module} from "./Module";
@@ -25,12 +25,12 @@ export {Show} from "./Views/Show";
 export {Form} from "./Views/Form";
 
 app.config(function($locationProvider){
-  $locationProvider.html5Mode(true).hashPrefix("!");
+	$locationProvider.html5Mode(true).hashPrefix("!");
 });
 
 app.config(function($mdIconProvider) {
-  $mdIconProvider
-    .iconSet("action", ActionIconSet, 24)
-    .iconSet("content", ContentIconSet, 24)
-    .iconSet("navigation", NavigationIconSet, 24);
+	$mdIconProvider
+		.iconSet("action", ActionIconSet, 24)
+		.iconSet("content", ContentIconSet, 24)
+		.iconSet("navigation", NavigationIconSet, 24);
 });
