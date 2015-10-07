@@ -1,6 +1,6 @@
 {
   "name": "fd-angular-admin",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Admin framework",
   "repository": "https://github.com/fd/fd-angular-admin.git",
   "scripts": {
@@ -30,7 +30,9 @@
   "jspm": {
     "format": "es6",
     "main": "src/index.js",
-    "ignore": ["node_modules/**/*"],
+    "ignore": [
+      "node_modules/**/*"
+    ],
     "map": {
       "html": "npm:fd-angular-tmpl",
       "css": "npm:jspm-loader-css"
