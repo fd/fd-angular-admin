@@ -28,14 +28,18 @@
     "jspm-loader-css": "*"
   },
   "jspm": {
+    "jspmNodeConversion": false,
     "format": "es6",
     "main": "src/index.js",
-    "ignore": [
-      "node_modules/**/*"
-    ],
-    "map": {
+    "dependencies": {
       "html": "npm:fd-angular-tmpl",
-      "css": "npm:jspm-loader-css"
+      "css": "npm:jspm-loader-css",
+      "angular": "jspm:angular",
+      "angular-animate": "jspm:angular-animate",
+      "angular-aria": "jspm:angular-aria",
+      "angular-messages": "jspm:angular-messages",
+      "angular-material": "npm:angular-material",
+      "fd-angular-core": "npm:fd-angular-core"
     }
   }
 }
