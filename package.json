@@ -14,21 +14,26 @@
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^3.1.19",
-    "eslint": "^0.24.0"
+    "eslint": "^0.24.0",
+    "jspm": "^0.16.11"
+  },
+  "dependencies": {
+    "angular-animate": "*",
+    "angular-aria": "*",
+    "angular-material": "*",
+    "angular-messages": "*",
+    "angular": "1.4.x",
+    "fd-angular-core": "*",
+    "fd-angular-tmpl": "*",
+    "jspm-loader-css": "*"
   },
   "jspm": {
-    "jspmNodeConversion": false,
     "format": "es6",
     "main": "src/index.js",
-    "dependencies": {
+    "ignore": ["node_modules/**/*"],
+    "map": {
       "html": "npm:fd-angular-tmpl",
-      "css": "npm:jspm-loader-css",
-      "angular": "jspm:angular",
-      "angular-animate": "jspm:angular-animate",
-      "angular-aria": "jspm:angular-aria",
-      "angular-messages": "jspm:angular-messages",
-      "angular-material": "npm:angular-material",
-      "fd-angular-core": "npm:fd-angular-core"
+      "css": "npm:jspm-loader-css"
     }
   }
 }
