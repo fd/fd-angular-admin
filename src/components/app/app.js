@@ -31,7 +31,7 @@ export class AppController {
 
 	@Inject('$element')
 	attach($element) {
-		$element.addClass("layout layout-row flex layout-fill");
+		$element.addClass("layout md-layout-row flex layout-fill");
 	}
 
 	goHome() {
