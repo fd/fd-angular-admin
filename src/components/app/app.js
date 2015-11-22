@@ -6,9 +6,9 @@ import TMPL from './app.html!html';
 var modules = [];
 
 @State({
-	abstract: true,
+	abstract:    true,
 	templateUrl: TMPL,
-	children: modules,
+	children:    modules,
 })
 @Inject("$mdSidenav", "$mdMedia", "$location")
 export class AppController {
@@ -31,7 +31,11 @@ export class AppController {
 
 	@Inject('$element')
 	attach($element) {
-		$element.addClass("layout md-layout-row flex layout-fill");
+		$element.attr({
+			layout:        "row",
+			"layout-fill": "layout-fill",
+			flex:          "flex",
+		});
 	}
 
 	goHome() {

@@ -8,7 +8,7 @@ export function List(opts={}) {
 	nextCtrlId++;
 
 	@State({
-		templateUrl: TMPL,
+		templateUrl:    TMPL,
 		controllerName: `fd.admin.list.${nextCtrlId}`,
 	})
 	@Inject("$state")
@@ -40,6 +40,13 @@ export function List(opts={}) {
 
 		toggleSelect(item, $event) {
 			$event.stopImmediatePropagation();
+		}
+
+		itemName(item) {
+			if (!item) {
+				return null;
+			}
+			return item.name || item.full_name || item.username || item.email || item.title;
 		}
 
 		firstLetter(item) {
