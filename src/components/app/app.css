@@ -1,6 +1,7 @@
 
 body {
   overflow: hidden;
+  display: flex;
 }
 
 md-content {

@@ -1,6 +1,6 @@
 <form name="adminForm" ng-submit="form.submit()">
   <md-card>
-    <md-card-content ng-include="form.formTMPL"></md-card-content>
+    <md-card-content ng-include="form.formTMPL" layout="column"></md-card-content>
 
     <div class="md-actions" layout="row" layout-align="end center">
       <md-button ng-click="form.cancel($event)">Cancel</md-button>

@@ -1,7 +1,6 @@
-/* */
 import {Inject, State} from "fd-angular-core";
-import './app.css!css';
-import TMPL from './app.html!html';
+import './app.css!';
+import TMPL from './app.html!';
 
 var modules = [];
 
